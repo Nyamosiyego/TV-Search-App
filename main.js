@@ -1,6 +1,7 @@
 const form = document.querySelector('#searchForm');
 form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    deleteImages();
     const searchTerm = form.elements.query.value;
     const config = { params: { q: searchTerm}}
     const res = await axios.get(`https://api.tvmaze.com/search/shows?/`, config)
@@ -25,4 +26,3 @@ const deleteImages = () => {
         }
     }
 
-form.addEventListener('submit', deleteImages());
